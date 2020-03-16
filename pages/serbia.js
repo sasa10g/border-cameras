@@ -1,54 +1,94 @@
-import Head from "next/head";
-import Link from "next/link";
 import { useEffect } from "react";
+import Head from "next/head";
 
-function Home() {
+function Serbia() {
+  useEffect(() => {
+    //  Za kameru koja je odabrana, priprema i pusta video
+    var video = document.getElementById("batrovci1");
+    video.style.visibility = "visible";
+
+    var source = "https://kamere.amss.org.rs/batrovci1/batrovci1.m3u8";
+
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(source);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = source;
+      video.addEventListener("canplay", function() {
+        video.play();
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    //  Za kameru koja je odabrana, priprema i pusta video
+    var video = document.getElementById("batrovci2");
+    video.style.visibility = "visible";
+
+    var source = "https://kamere.amss.org.rs/batrovci2/batrovci2.m3u8";
+
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(source);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = source;
+      video.addEventListener("canplay", function() {
+        video.play();
+      });
+    }
+  }, []);
+
   return (
     <div className="container">
       <Head>
         <title>Border Cameras</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
       </Head>
 
       <main>
         <h1 className="title">
-          Border <a href="/">Cameras!</a>
+          Border <a href="/"> Serbia!</a>
         </h1>
-
         <p className="description">
           <img width="100px" src="/favicon.ico" />
         </p>
 
-        <div className="grid">
-          <a href="/bosnia" className="card">
-            <h3>
-              <img src="/bih.png" />
-              Bosnia
-            </h3>
-            <p>&rarr; Gunja</p>
-            <p>&rarr; Rača</p>
-            <p>&rarr; Pavlović</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/rs.png" />
+            Batrovci &larr;
+          </div>
 
-          <a href="/serbia" className="card">
-            <h3>
-              <img src="/rs.png" /> Serbia
-            </h3>
-            <p>&rarr; Batrovci</p>
-          </a>
+          <video
+            className="kamera"
+            id="batrovci1"
+            controls="controls"
+            src="blob:https://kamere.amss.org.rs/d658f909-c459-403d-a50e-e9fcbabbf1ad"
+          ></video>
+        </div>
 
-          <a href="/croatia" className="card">
-            <h3>
-              <img src="/hr.png" /> Croatia
-            </h3>
-            <p>&rarr; Gunja</p>
-            <p>&rarr; Bajakovo</p>
-            <p>&rarr; Ilok</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/rs.png" />
+            Batrovci &rarr;
+          </div>
+
+          <video
+            className="kamera"
+            id="batrovci2"
+            controls="controls"
+            src="blob:https://kamere.amss.org.rs/ebadfb14-3f46-4684-8d80-22869c9fa6e5"
+          ></video>
         </div>
       </main>
 
@@ -68,6 +108,11 @@ function Home() {
           align-items: center;
         }
 
+        video {
+          width: 100% !important;
+          height: auto !important;
+        }
+
         main {
           padding: 2rem 0;
           flex: 1;
@@ -75,6 +120,25 @@ function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .camera-container {
+          margin-bottom: 20px;
+        }
+
+        .cameras {
+          width: 100%;
+        }
+
+        .flag-title {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .flags {
+          width: 20px;
+          margin-right: 5px;
+          vertical-align: bottom;
         }
 
         footer {
@@ -173,12 +237,6 @@ function Home() {
           font-size: 1.5rem;
         }
 
-        .card h3 img {
-          width: 25px;
-          vertical-align: top;
-          margin-right: 10px;
-        }
-
         .card p {
           margin: 0;
           font-size: 1.25rem;
@@ -211,4 +269,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Serbia;

@@ -1,63 +1,78 @@
 import Head from "next/head";
-import Link from "next/link";
-import { useEffect } from "react";
 
-function Home() {
+function Croatia() {
   return (
     <div className="container">
       <Head>
         <title>Border Cameras</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <main>
         <h1 className="title">
-          Border <a href="/">Cameras!</a>
+          Border <a href="/">Croatia!</a>
         </h1>
-
         <p className="description">
           <img width="100px" src="/favicon.ico" />
         </p>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/hr.png" />
+            Gunja &larr;
+          </div>
+          <img
+            className="cameras"
+            src="https://m.hak.hr/cam.asp?id=431&t=1584219995185"
+          />
+        </div>
 
-        <div className="grid">
-          <a href="/bosnia" className="card">
-            <h3>
-              <img src="/bih.png" />
-              Bosnia
-            </h3>
-            <p>&rarr; Gunja</p>
-            <p>&rarr; Rača</p>
-            <p>&rarr; Pavlović</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/hr.png" />
+            Gunja &rarr;
+          </div>
+          <img
+            className="cameras"
+            src="https://m.hak.hr/cam.asp?id=432&t=1584220008169"
+          />
+        </div>
 
-          <a href="/serbia" className="card">
-            <h3>
-              <img src="/rs.png" /> Serbia
-            </h3>
-            <p>&rarr; Batrovci</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/hr.png" />
+            Bajakovo &larr;
+          </div>
+          <img className="cameras" src="https://m.hak.hr/cam.asp?id=2" />
+        </div>
 
-          <a href="/croatia" className="card">
-            <h3>
-              <img src="/hr.png" /> Croatia
-            </h3>
-            <p>&rarr; Gunja</p>
-            <p>&rarr; Bajakovo</p>
-            <p>&rarr; Ilok</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/hr.png" />
+            Bajakovo &rarr;
+          </div>
+          <img
+            className="cameras"
+            src="https://m.hak.hr/cam.asp?id=1&t=1584220057166"
+          />
+        </div>
+
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/hr.png" />
+            Bajakovo &rarr;
+          </div>
+          <img
+            className="cameras"
+            src="https://m.hak.hr/cam.asp?id=3&t=1584220089182"
+          />
         </div>
       </main>
-
       <footer>
         <a href="#" target="_blank" rel="noopener noreferrer">
           Dev
         </a>
       </footer>
-
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -75,6 +90,25 @@ function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .camera-container {
+          margin-bottom: 20px;
+        }
+
+        .cameras {
+          width: 100%;
+        }
+
+        .flag-title {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .flags {
+          width: 20px;
+          margin-right: 5px;
+          vertical-align: bottom;
         }
 
         footer {
@@ -173,12 +207,6 @@ function Home() {
           font-size: 1.5rem;
         }
 
-        .card h3 img {
-          width: 25px;
-          vertical-align: top;
-          margin-right: 10px;
-        }
-
         .card p {
           margin: 0;
           font-size: 1.25rem;
@@ -192,7 +220,6 @@ function Home() {
           }
         }
       `}</style>
-
       <style jsx global>{`
         html,
         body {
@@ -211,4 +238,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Croatia;

@@ -1,54 +1,81 @@
 import Head from "next/head";
-import Link from "next/link";
-import { useEffect } from "react";
 
-function Home() {
+function Bosnia() {
+  var newDate =
+    "https://bihamk.ba/assets/video-surveillance/BRCKO.jpg?v=" + new Date();
+
+  function onClick() {
+    window.location.reload();
+  }
   return (
     <div className="container">
       <Head>
         <title>Border Cameras</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <main>
         <h1 className="title">
-          Border <a href="/">Cameras!</a>
+          Border <a href="/"> Bosnia!</a>
         </h1>
-
         <p className="description">
           <img width="100px" src="/favicon.ico" />
+
+          <button className="reset-button" onClick={onClick}>
+            Reset
+          </button>
         </p>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/bih.png" />
+            Gunja &rarr;
+          </div>
+          <img className="cameras" src={newDate} />
+        </div>
 
-        <div className="grid">
-          <a href="/bosnia" className="card">
-            <h3>
-              <img src="/bih.png" />
-              Bosnia
-            </h3>
-            <p>&rarr; Gunja</p>
-            <p>&rarr; Rača</p>
-            <p>&rarr; Pavlović</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/bih.png" />
+            Rača &larr;
+          </div>
+          <img
+            className="cameras"
+            src="http://139.59.212.224/AMSRS_02_GP_RA02/slika.jpg"
+          />
+        </div>
 
-          <a href="/serbia" className="card">
-            <h3>
-              <img src="/rs.png" /> Serbia
-            </h3>
-            <p>&rarr; Batrovci</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/bih.png" />
+            Rača &rarr;
+          </div>
+          <img
+            className="cameras"
+            src="http://139.59.212.224/AMSRS_02_GP_RA01/slika.jpg"
+          />
+        </div>
 
-          <a href="/croatia" className="card">
-            <h3>
-              <img src="/hr.png" /> Croatia
-            </h3>
-            <p>&rarr; Gunja</p>
-            <p>&rarr; Bajakovo</p>
-            <p>&rarr; Ilok</p>
-          </a>
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/bih.png" />
+            Pavlović &larr;
+          </div>
+          <img
+            className="cameras"
+            src="http://139.59.212.224/AMSRS_05_GP_PM01/slika.jpg"
+          />
+        </div>
+
+        <div className="camera-container">
+          <div className="flag-title">
+            <img className="flags" src="/bih.png" />
+            Pavlović &rarr;
+          </div>
+          <img
+            className="cameras"
+            src="http://139.59.212.224/AMSRS_05_GP_PM02/slika.jpg"
+          />
         </div>
       </main>
 
@@ -68,6 +95,16 @@ function Home() {
           align-items: center;
         }
 
+        .reset-button {
+          width: 200px;
+          height: 50px;
+          display: block;
+          border: none;
+          background-color: #0070f3;
+          color: #fff;
+          font-size: 16px;
+        }
+
         main {
           padding: 2rem 0;
           flex: 1;
@@ -75,6 +112,25 @@ function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .camera-container {
+          margin-bottom: 20px;
+        }
+
+        .cameras {
+          width: 100%;
+        }
+
+        .flag-title {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .flags {
+          width: 20px;
+          margin-right: 5px;
+          vertical-align: bottom;
         }
 
         footer {
@@ -173,12 +229,6 @@ function Home() {
           font-size: 1.5rem;
         }
 
-        .card h3 img {
-          width: 25px;
-          vertical-align: top;
-          margin-right: 10px;
-        }
-
         .card p {
           margin: 0;
           font-size: 1.25rem;
@@ -211,4 +261,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Bosnia;

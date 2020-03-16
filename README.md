@@ -1,30 +1,64 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Gunja
 
-First, run the development server:
+- Ulaz HR
+  <img id="i_431" class="cam" src="cam.asp?id=431&amp;t=1584187870355" width="100%">
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Izlaz HR
+  <img id="i_432" class="cam" src="cam.asp?id=432&amp;t=1584187918477" width="100%">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Ulaz BiH
+  /
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Izlaz BiH
+  https://bihamk.ba/assets/video-surveillance/BRCKO.jpg
 
-## Learn More
+## Sremska Rača
 
-To learn more about Next.js, take a look at the following resources:
+- Ulaz
+  http://77.46.142.211:8081/SremskaRaca/sremskaraca1.m3u8
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Izlaz
+  http://77.46.142.211:8081/SremskaRaca/sremskaraca2.m3u8
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+## Bosanska Rača
 
-## Deploy on ZEIT Now
+- Ulaz
+  http://139.59.212.224/AMSRS_02_GP_RA02/slika.jpg
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Izlaz
+  http://139.59.212.224/AMSRS_02_GP_RA01/slika.jpg
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Pavlović most
+
+- Ulaz
+  http://139.59.212.224/AMSRS_05_GP_PM02/slika.jpg
+
+- Izlaz
+  http://139.59.212.224/AMSRS_05_GP_PM01/slika.jpg
+
+## Batrovci
+
+- Ulaz
+  https://kamere.amss.org.rs/batrovci1/batrovci1.m3u8
+
+- Izlaz
+  https://kamere.amss.org.rs/batrovci1/batrovci2.m3u8
+
+## Bajakovo
+
+- Ulaz HR
+  <img id="i_2" class="cam" src="cam.asp?id=2&amp;t=1584188133050" width="100%">
+
+- Izlaz HR
+  <img id="i_1" class="cam" src="cam.asp?id=1&amp;t=1584188164350" width="100%">
+  <img id="i_3" class="cam" src="cam.asp?id=3&amp;t=1584188180313" width="100%">
+
+## Ilok
+
+- Ulaz HR
+  <img id="i_418" class="cam" src="cam.asp?id=418" width="100%">
+
+- Izlaz HR
+  <img id="i_417" class="cam" src="cam.asp?id=417" width="100%">
