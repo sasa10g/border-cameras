@@ -53,7 +53,6 @@ export default function Home() {
             </h3>
             <p>&rarr; Gunja</p>
             <p>&rarr; Bajakovo</p>
-            <p>&rarr; Ilok</p>
           </a>
             </Link>
         </div>
