@@ -138,8 +138,7 @@ export default function Srbija() {
               className="kamera"
               id="batrovci1"
               controls="controls"
-              defaultMuted
-              autoplay
+              autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto"
               src="blob:https://kamere.amss.org.rs/0a7b6f9d-878b-4a0a-8a86-facc5ec272f5"
             ></video>
           </div>
@@ -157,8 +156,7 @@ export default function Srbija() {
               className="kamera"
               id="batrovci2"
               controls="controls"
-              defaultMuted
-              autoplay
+              autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto"
               src="blob:https://kamere.amss.org.rs/216165f4-37a4-4911-8d9c-0dc72ef98638"
             ></video>
           </div>
@@ -177,8 +175,7 @@ export default function Srbija() {
             className="kamera"
             id="sremskaraca1"
             controls="controls"
-            defaultMuted
-            autoplay
+            autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto"
             src="blob:http://www.mup.gov.rs/c6f2ec93-f95c-4581-a025-caaa1c95f94c"
           ></video>
         </div>
