@@ -196,8 +196,7 @@ export default function Srbija() {
             className="kamera"
             id="sremskaraca2"
             controls="controls"
-            defaultMuted
-            autoplay
+            autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto"
             src="blob:http://www.mup.gov.rs/ca633ecf-9b83-45a1-9150-114ced982e22"
 
 
