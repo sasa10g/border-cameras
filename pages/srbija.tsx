@@ -16,18 +16,18 @@ export default function Srbija() {
     var video = document.getElementById("batrovci1");
     video.style.visibility = "visible";
 
-    var source = "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8";
+    var source = "https://kamere.amss.org.rs/batrovci1/batrovci1.m3u8";
 
     if (isSupported) {
       var hls = new Hls();
       hls.loadSource(source);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = source;
-      video.addEventListener("canplay", function() {
+      video.addEventListener("canplay", function () {
         video.play();
       });
     }
@@ -44,12 +44,12 @@ export default function Srbija() {
       var hls = new Hls();
       hls.loadSource(source);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = source;
-      video.addEventListener("canplay", function() {
+      video.addEventListener("canplay", function () {
         video.play();
       });
     }
@@ -66,12 +66,12 @@ export default function Srbija() {
       var hls = new Hls();
       hls.loadSource(source);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = source;
-      video.addEventListener("canplay", function() {
+      video.addEventListener("canplay", function () {
         video.play();
       });
     }
@@ -88,12 +88,12 @@ export default function Srbija() {
       var hls = new Hls();
       hls.loadSource(source);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = source;
-      video.addEventListener("canplay", function() {
+      video.addEventListener("canplay", function () {
         video.play();
       });
     }
@@ -113,9 +113,9 @@ export default function Srbija() {
       </Head>
 
       <main>
-      <div className="main-title">
-        <a href="/"><img style={{width: '50px'}} src="left-arrow.png" /></a> 
-        <h1 className="title">🇷🇸 Srbija</h1>
+        <div className="main-title">
+          <a href="/"><img style={{ width: '50px' }} src="left-arrow.png" /></a>
+          <h1 className="title">🇷🇸 Srbija</h1>
         </div>
         <p className="description">
           <img width="100px" src="/favicon.ico" />
@@ -125,43 +125,43 @@ export default function Srbija() {
         </p>
 
         <div className="grid-container">
+          <div className="camera-container">
+            <div className="flag-title">
+              <span className="flag-title-span">
+                <img className="flags" src="/rs.png" />
+                &larr;
+              </span>
+              <span className="title-span"><strong>Batrovci</strong> ulaz u Srbiju</span>
+            </div>
+
+            <video
+              className="kamera"
+              id="batrovci1"
+              controls="controls"
+              src="blob:https://kamere.amss.org.rs/0a7b6f9d-878b-4a0a-8a86-facc5ec272f5"
+            ></video>
+          </div>
+
+          <div className="camera-container">
+            <div className="flag-title">
+              <span className="flag-title-span">
+                <img className="flags" src="/rs.png" />
+                &rarr;
+              </span>
+              <span className="title-span"><strong>Batrovci</strong> izlaz iz Srbije</span>
+            </div>
+
+            <video
+              className="kamera"
+              id="batrovci2"
+              controls="controls"
+              src="blob:https://kamere.amss.org.rs/216165f4-37a4-4911-8d9c-0dc72ef98638"
+            ></video>
+          </div>
+        </div>
+
         <div className="camera-container">
           <div className="flag-title">
-            <span className="flag-title-span">
-              <img className="flags" src="/rs.png" />
-              &larr;
-            </span>
-            <span className="title-span"><strong>Batrovci</strong> ulaz u Srbiju</span>
-          </div>
-
-          <video
-            className="kamera"
-            id="batrovci1"
-            controls="controls"
-            src="blob:https://kamere.amss.org.rs/d658f909-c459-403d-a50e-e9fcbabbf1ad"
-          ></video>
-        </div>
-
-        <div className="camera-container">
-        <div className="flag-title">
-            <span className="flag-title-span">
-              <img className="flags" src="/rs.png" />
-              &rarr;
-            </span>
-            <span className="title-span"><strong>Batrovci</strong> izlaz iz Srbije</span>
-          </div>
-
-          <video
-            className="kamera"
-            id="batrovci2"
-            controls="controls"
-            src="blob:http://www.mup.gov.rs/e802a5f1-2605-404f-bc6d-b8a9bfacdab6"
-          ></video>
-        </div>
-        </div>
-
-        <div className="camera-container">
-        <div className="flag-title">
             <span className="flag-title-span">
               <img className="flags" src="/rs.png" />
               &rarr;
@@ -173,12 +173,12 @@ export default function Srbija() {
             className="kamera"
             id="sremskaraca1"
             controls="controls"
-            src="blob:http://www.mup.gov.rs/3b61d786-255c-4df1-bd3e-db412f1596c5"
+            src="blob:http://www.mup.gov.rs/33d1a5b5-7634-4c23-a788-5c3103cdacce"
           ></video>
         </div>
 
         <div className="camera-container">
-        <div className="flag-title">
+          <div className="flag-title">
             <span className="flag-title-span">
               <img className="flags" src="/rs.png" />
               &rarr;
@@ -190,8 +190,8 @@ export default function Srbija() {
             className="kamera"
             id="sremskaraca2"
             controls="controls"
-            src="blob:http://www.mup.gov.rs/263d792a-1a00-462f-8e18-561ddaffad55"
-            
+            src="blob:http://www.mup.gov.rs/b3298c56-40c2-41e5-9e7e-eb5199b1a472"
+
           ></video>
         </div>
       </main>
