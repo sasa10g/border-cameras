@@ -16,7 +16,7 @@ export default function Srbija() {
     var video = document.getElementById("batrovci1");
     video.style.visibility = "visible";
 
-    var source = "https://kamere.amss.org.rs/batrovci1/batrovci1.m3u8";
+    var source = "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8";
 
     if (isSupported) {
       var hls = new Hls();
@@ -33,14 +33,36 @@ export default function Srbija() {
     }
   }, []);
 
+  // useEffect(() => {
+  //   //  Za kameru koja je odabrana, priprema i pusta video
+  //   var video = document.getElementById("batrovci2");
+  //   video.style.visibility = "visible";
+
+  //   var source = "http://77.46.142.211:8081/Batrovci/batrovci2.m3u8";
+
+  //   if (isSupported) {
+  //     var hls = new Hls();
+  //     hls.loadSource(source);
+  //     hls.attachMedia(video);
+  //     hls.on(Hls.Events.MANIFEST_PARSED, function () {
+  //       video.play();
+  //     });
+  //   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+  //     video.src = source;
+  //     video.addEventListener("canplay", function () {
+  //       video.play();
+  //     });
+  //   }
+  // }, []);
+
   useEffect(() => {
     //  Za kameru koja je odabrana, priprema i pusta video
     var video = document.getElementById("batrovci2");
     video.style.visibility = "visible";
 
-    var source = "http://77.46.142.211:8081/Batrovci/batrovci2.m3u8";
+    var source = "https://kamere.amss.org.rs/batrovci2/batrovci2.m3u8";
 
-    if (isSupported) {
+    if (Hls.isSupported()) {
       var hls = new Hls();
       hls.loadSource(source);
       hls.attachMedia(video);
