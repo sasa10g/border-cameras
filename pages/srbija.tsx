@@ -11,28 +11,6 @@ declare global {
   }
 }
 export default function Srbija() {
-  // useEffect(() => {
-  //   //  Za kameru koja je odabrana, priprema i pusta video
-  //   var video = document.getElementById("batrovci1");
-  //   video.style.visibility = "visible";
-
-  //   var source = "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8";
-
-  //   if (isSupported) {
-  //     var hls = new Hls();
-  //     hls.loadSource(source);
-  //     hls.attachMedia(video);
-  //     hls.on(Hls.Events.MANIFEST_PARSED, function () {
-  //       video.play();
-  //     });
-  //   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-  //     video.src = source;
-  //     video.addEventListener("canplay", function () {
-  //       video.play();
-  //     });
-  //   }
-  // }, []);
-
   useEffect(() => {
     //  Za kameru koja je odabrana, priprema i pusta video
     var video = document.getElementById("batrovci1");
@@ -55,28 +33,6 @@ export default function Srbija() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   //  Za kameru koja je odabrana, priprema i pusta video
-  //   var video = document.getElementById("batrovci2");
-  //   video.style.visibility = "visible";
-
-  //   var source = "http://77.46.142.211:8081/Batrovci/batrovci2.m3u8";
-
-  //   if (isSupported) {
-  //     var hls = new Hls();
-  //     hls.loadSource(source);
-  //     hls.attachMedia(video);
-  //     hls.on(Hls.Events.MANIFEST_PARSED, function () {
-  //       video.play();
-  //     });
-  //   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-  //     video.src = source;
-  //     video.addEventListener("canplay", function () {
-  //       video.play();
-  //     });
-  //   }
-  // }, []);
-
   useEffect(() => {
     //  Za kameru koja je odabrana, priprema i pusta video
     var video = document.getElementById("batrovci2");
@@ -98,28 +54,6 @@ export default function Srbija() {
       });
     }
   }, []);
-
-  // useEffect(() => {
-  //   //  Za kameru koja je odabrana, priprema i pusta video
-  //   var video = document.getElementById("sremskaraca1");
-  //   video.style.visibility = "visible";
-
-  //   var source = "http://77.46.142.211:8081/SremskaRaca/sremskaraca1.m3u8";
-
-  //   if (isSupported) {
-  //     var hls = new Hls();
-  //     hls.loadSource(source);
-  //     hls.attachMedia(video);
-  //     hls.on(Hls.Events.MANIFEST_PARSED, function () {
-  //       video.play();
-  //     });
-  //   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-  //     video.src = source;
-  //     video.addEventListener("canplay", function () {
-  //       video.play();
-  //     });
-  //   }
-  // }, []);
 
   useEffect(() => {
     //  Za kameru koja je odabrana, priprema i pusta video
@@ -204,6 +138,8 @@ export default function Srbija() {
               className="kamera"
               id="batrovci1"
               controls="controls"
+              defaultMuted
+              autoplay
               src="blob:https://kamere.amss.org.rs/0a7b6f9d-878b-4a0a-8a86-facc5ec272f5"
             ></video>
           </div>
@@ -221,6 +157,8 @@ export default function Srbija() {
               className="kamera"
               id="batrovci2"
               controls="controls"
+              defaultMuted
+              autoplay
               src="blob:https://kamere.amss.org.rs/216165f4-37a4-4911-8d9c-0dc72ef98638"
             ></video>
           </div>
@@ -239,6 +177,8 @@ export default function Srbija() {
             className="kamera"
             id="sremskaraca1"
             controls="controls"
+            defaultMuted
+            autoplay
             src="blob:http://www.mup.gov.rs/c6f2ec93-f95c-4581-a025-caaa1c95f94c"
           ></video>
         </div>
@@ -256,6 +196,8 @@ export default function Srbija() {
             className="kamera"
             id="sremskaraca2"
             controls="controls"
+            defaultMuted
+            autoplay
             src="blob:http://www.mup.gov.rs/ca633ecf-9b83-45a1-9150-114ced982e22"
 
 
