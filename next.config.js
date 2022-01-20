@@ -1,10 +1,12 @@
 module.exports = {
   images: {
     domains: [
-      "amsrskamere.tk", 
-      "bihamk.ba", 
-      "www.hak.hr", 
-      "kamere.amss.org.rs"
+      "gp.satwork.net",
+      "bihamk.ba",
+      "www.hak.hr",
+      "kamere.amss.org.rs",
+      "www.mup.gov.rs",
+      "77.46.142.211:8081",
     ],
   },
 };

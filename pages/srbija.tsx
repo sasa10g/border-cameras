@@ -21,16 +21,18 @@ export default function Srbija() {
       element: 'batrovci1',
       description: "ulaz u Srbiju",
       direction: "in",
-      link: "https://kamere.amss.org.rs/batrovci1/batrovci1.m3u8",
-      blob: "blob:https://kamere.amss.org.rs/0a7b6f9d-878b-4a0a-8a86-facc5ec272f5"
+      link: "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8",
+      blob: "blob:http://www.mup.gov.rs/daa85222-3945-4281-9128-0566bb7f88c9"
     },
+
+
     {
       title: 'Batrovci',
       element: 'batrovci2',
       description: "izlaz iz Srbije",
       direction: "out",
-      link: "https://kamere.amss.org.rs/batrovci2/batrovci2.m3u8",
-      blob: "blob:https://kamere.amss.org.rs/216165f4-37a4-4911-8d9c-0dc72ef98638"
+      link: "http://77.46.142.211:8081/Batrovci/batrovci2.m3u8",
+      blob: "blob:http://www.mup.gov.rs/c1f7b8e7-bd5e-4559-bb53-a3cb69cb49a9"
     },
     {
       title: 'Sremska Rača',

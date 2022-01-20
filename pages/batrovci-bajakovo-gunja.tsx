@@ -22,8 +22,8 @@ export default function BatrovciBajakovoGunja() {
       element: 'batrovci2',
       description: "izlaz iz Srbije",
       direction: "out",
-      link: "https://kamere.amss.org.rs/batrovci2/batrovci2.m3u8",
-      blob: "blob:https://kamere.amss.org.rs/216165f4-37a4-4911-8d9c-0dc72ef98638"
+      link: "http://77.46.142.211:8081/Batrovci/batrovci2.m3u8",
+      blob: "blob:http://www.mup.gov.rs/c1f7b8e7-bd5e-4559-bb53-a3cb69cb49a9"
     }
   ]
 
