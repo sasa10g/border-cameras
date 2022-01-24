@@ -68,7 +68,7 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href="/hrvatska" as="/hrvatska">
+          <Link href="/gunja-bajakovo-batrovci" as="/gunja-bajakovo-batrovci">
             <a className="card">
               <h3>
                 <img src="/bih.png" /><img src="/hr.png" /><img src="/rs.png" /> Brčko &rarr; Novi Sad
