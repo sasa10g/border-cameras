@@ -46,7 +46,6 @@ export default function PhotoItem({
         src={image + newDate}
         width={1200}
         height={600}
-        placeholder="blur"
         loading="lazy"
       />
     </div>
