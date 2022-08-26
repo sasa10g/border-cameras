@@ -6,6 +6,7 @@ import Hls from "hls.js";
 
 import Layout from "components/Layout/Layout";
 import VideoItem from "components/Item/VideoItem";
+import PhotoItem from "components/Item/PhotoItem";
 
 declare global {
   interface Document {
@@ -13,33 +14,8 @@ declare global {
   }
 }
 
-export default function Srbija() {
+export default function SremskaRacaBosanskaRaca() {
   const videoStreams = [
-    {
-      title: "Batrovci",
-      element: "batrovci1",
-      description: "ulaz u Srbiju",
-      direction: "in",
-      link: "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8",
-      blob: "blob:http://www.mup.gov.rs/daa85222-3945-4281-9128-0566bb7f88c9",
-    },
-
-    {
-      title: "Batrovci",
-      element: "batrovci2",
-      description: "izlaz iz Srbije",
-      direction: "out",
-      link: "http://77.46.142.211:8081/Batrovci/batrovci2.m3u8",
-      blob: "blob:http://www.mup.gov.rs/c1f7b8e7-bd5e-4559-bb53-a3cb69cb49a9",
-    },
-    {
-      title: "Sremska Rača",
-      element: "sremskaraca1",
-      description: "ulaz u Srbiju",
-      direction: "in",
-      link: "http://77.46.142.211:8081/SremskaRaca/sremskaraca1.m3u8",
-      blob: "blob:http://www.mup.gov.rs/c6f2ec93-f95c-4581-a025-caaa1c95f94c",
-    },
     {
       title: "Sremska Rača",
       element: "sremskaraca2",
@@ -47,6 +23,16 @@ export default function Srbija() {
       direction: "out",
       link: "http://77.46.142.211:8081/SremskaRaca/sremskaraca2.m3u8",
       blob: "blob:http://www.mup.gov.rs/ca633ecf-9b83-45a1-9150-114ced982e22",
+    },
+  ];
+
+  const photoStreams = [
+    {
+      title: "Rača",
+      desctiption: "ulaz u Bosne",
+      direction: "in",
+      image: "https://gp.satwork.net/AMSRS_02_GP_RA02/slika.jpg?v=",
+      country: "bih",
     },
   ];
 
@@ -91,6 +77,17 @@ export default function Srbija() {
             direction={item.direction}
             element={item.element}
             blob={item.blob}
+          />
+        ))}
+
+        {photoStreams.map((item: any) => (
+          <PhotoItem
+            key={item.image}
+            title={item.title}
+            desctiption={item.desctiption}
+            direction={item.direction}
+            image={item.image}
+            country={item.country}
           />
         ))}
       </div>

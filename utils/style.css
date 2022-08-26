@@ -152,7 +152,7 @@
     }
     .card {
       margin: 1rem;
-      width: 250px;
+      width: 350px;
       height: 200px; 
       flex-basis: 45%;
       padding: 1.5rem;
@@ -198,7 +198,7 @@
     .grid-path .card {
       height: 120px;
       max-width: 800px;
-      width: 100vw;
+      width: 91%;
     }
 
     .grid-path h3 {
@@ -220,7 +220,7 @@
     }
 
     .grid-path .card h3 img {
-      margin-left: -15px;
+      margin-left: -20px;
     }
 
     .grid-path .card span {
