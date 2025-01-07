@@ -12,7 +12,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   /
 
 - Izlaz BiH
-  https://bihamk.ba/assets/video-surveillance/BRCKO.jpg
+  https://video-nadzor.bihamk.ba/videosurveillence/BRCKO.jpg
 
 ## Sremska Rača
 

@@ -1,61 +1,59 @@
 // @ts-nocheck
 import { useEffect } from "react";
 
-import isSupported from 'hls.js'
-import Hls from 'hls.js'
+import isSupported from "hls.js";
+import Hls from "hls.js";
 
-import Layout from 'components/Layout/Layout'
-import VideoItem from 'components/Item/VideoItem'
-import PhotoItem from 'components/Item/PhotoItem'
+import Layout from "components/Layout/Layout";
+import VideoItem from "components/Item/VideoItem";
+import PhotoItem from "components/Item/PhotoItem";
 
 declare global {
   interface Document {
-    querySelector: any
+    querySelector: any;
   }
 }
 
 export default function GunjaBajakovoBatrovci() {
-
   const videoStreams = [
     {
-      title: 'Batrovci',
-      element: 'batrovci1',
+      title: "Batrovci",
+      element: "batrovci1",
       description: "ulaz u Srbiju",
       direction: "in",
       link: "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8",
-      blob: "blob:http://www.mup.gov.rs/daa85222-3945-4281-9128-0566bb7f88c9"
-    }
-  ]
+      blob: "https://kamere.amss.org.rs/3a45331a-fad4-4907-bd37-3fa4c2b0910e",
+    },
+  ];
 
   const photoStreams = [
     {
       title: "Gunja",
       desctiption: "izlaz iz Bosne",
-      direction: 'out',
-      image: "https://bihamk.ba/assets/video-surveillance/BRCKO.jpg?v=",
+      direction: "out",
+      image: "https://video-nadzor.bihamk.ba/videosurveillence/BRCKO.jpg?",
       country: "bih",
     },
     {
       title: "Gunja",
       desctiption: "ulaz u Hrvatsku",
-      direction: 'in',
+      direction: "in",
       image: "https://www.hak.hr/info/kamere/431.jpg?v=",
       country: "hr",
     },
     {
       title: "Bajakovo",
       desctiption: "izlaz iz Hrvatske",
-      direction: 'out',
+      direction: "out",
       image: "https://www.hak.hr/info/kamere/3.jpg?v=",
       country: "hr",
-    }
-  ]
+    },
+  ];
 
   const exportVideo = (element: string, link: any) => {
     //  Za kameru koja je odabrana, priprema i pusta video
-    var video = document.getElementById(element)
+    var video = document.getElementById(element);
     video.style.visibility = "visible";
-
 
     if (Hls.isSupported()) {
       var hls = new Hls();
@@ -70,21 +68,21 @@ export default function GunjaBajakovoBatrovci() {
         video.play();
       });
     }
-  }
+  };
 
-  const onContextMenu = () => { return false }
+  const onContextMenu = () => {
+    return false;
+  };
 
   useEffect(() => {
     videoStreams.map((item: any) => {
-      exportVideo(item.element, item.link)
-    })
-
-  }, [])
+      exportVideo(item.element, item.link);
+    });
+  }, []);
 
   return (
-    <Layout title='Srbija'>
+    <Layout title="Srbija">
       <div className="grid-container">
-
         {photoStreams.map((item: any) => (
           <PhotoItem
             key={item.image}
@@ -92,10 +90,11 @@ export default function GunjaBajakovoBatrovci() {
             desctiption={item.desctiption}
             direction={item.direction}
             image={item.image}
-            country={item.country} />
+            country={item.country}
+          />
         ))}
 
-{videoStreams.map((item: any) => (
+        {videoStreams.map((item: any) => (
           <VideoItem
             key={item.element}
             title={item.title}

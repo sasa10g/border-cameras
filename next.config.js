@@ -3,6 +3,7 @@ module.exports = {
     domains: [
       "gp.satwork.net",
       "bihamk.ba",
+      "video-nadzor.bihamk.ba",
       "www.hak.hr",
       "kamere.amss.org.rs",
       "www.mup.gov.rs",

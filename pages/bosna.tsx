@@ -7,7 +7,7 @@ export default function Bosna() {
       title: "Gunja",
       desctiption: "izlaz iz Bosne",
       direction: "out",
-      image: "https://bihamk.ba/assets/video-surveillance/BRCKO.jpg?v=",
+      image: "https://video-nadzor.bihamk.ba/videosurveillence/BRCKO.jpg?",
       country: "bih",
     },
     {
