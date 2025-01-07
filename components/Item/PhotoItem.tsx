@@ -40,13 +40,11 @@ export default function PhotoItem({
           <strong>{title}</strong> {desctiption}
         </span>
       </div>
-      <Image
+      <img
         className="imageContainer"
         alt={title}
         src={image + newDate}
-        width={1200}
-        height={600}
-        placeholder="blur"
+        // placeholder="blur"
         loading="lazy"
       />
     </div>

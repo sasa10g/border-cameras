@@ -21,7 +21,7 @@ export default function GunjaBajakovoBatrovci() {
       element: "batrovci1",
       description: "ulaz u Srbiju",
       direction: "in",
-      link: "http://77.46.142.211:8081/Batrovci/batrovci1.m3u8",
+      link: "https://kamere.amss.org.rs/batrovci1/batrovci1.m3u8",
       blob: "https://kamere.amss.org.rs/3a45331a-fad4-4907-bd37-3fa4c2b0910e",
     },
   ];
