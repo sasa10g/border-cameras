@@ -21,8 +21,8 @@ export default function SremskaRacaBosanskaRaca() {
       element: "sremskaraca2",
       description: "izlaz iz Srbije",
       direction: "out",
-      link: "http://77.46.142.211:8081/SremskaRaca/sremskaraca2.m3u8",
-      blob: "blob:http://www.mup.gov.rs/ca633ecf-9b83-45a1-9150-114ced982e22",
+      link: "https://kamere.mup.gov.rs:4443/SremskaRaca/sremskaraca2.m3u8",
+      blob: "blob:http://www.mup.gov.rs/f2c1a493-49b6-4c0a-aa93-ef0ecbc13d86",
     },
   ];
 
@@ -31,7 +31,7 @@ export default function SremskaRacaBosanskaRaca() {
       title: "Rača",
       desctiption: "ulaz u Bosne",
       direction: "in",
-      image: "https://gp.satwork.net/AMSRS_02_GP_RA02/slika.jpg?v=",
+      image: `https://gp.satwork.net/AMSRS_02_GP_RA02/slika.jpg?v=`,
       country: "bih",
     },
   ];

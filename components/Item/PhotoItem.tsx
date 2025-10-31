@@ -42,6 +42,7 @@ export default function PhotoItem({
       </div>
       <img
         className="imageContainer"
+        crossorigin="*"
         alt={title}
         src={image + newDate}
         // placeholder="blur"

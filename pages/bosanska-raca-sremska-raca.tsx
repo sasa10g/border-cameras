@@ -21,8 +21,8 @@ export default function BosanskaRacaSremskaRaca() {
       element: "sremskaraca1",
       description: "ulaz u Srbiju",
       direction: "in",
-      link: "http://77.46.142.211:8081/SremskaRaca/sremskaraca1.m3u8",
-      blob: "blob:http://www.mup.gov.rs/c6f2ec93-f95c-4581-a025-caaa1c95f94c",
+      link: "https://kamere.mup.gov.rs:4443/SremskaRaca/sremskaraca1.m3u8",
+      blob: "blob:http://www.mup.gov.rs/f2c1a493-49b6-4c0a-aa93-ef0ecbc13d86",
     },
   ];
 
