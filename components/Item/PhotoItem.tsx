@@ -1,6 +1,6 @@
 // @ts-nocheck
-import Image from "next/image";
 import moment from "moment";
+import { GlassCard } from "../ui/glass-card";
 
 interface IPhotoItem {
   title: string;
@@ -28,26 +28,29 @@ export default function PhotoItem({
 
   //Render image on reload only if it's new minute
   var newDate = moment(new Date()).format("DD.MM.YYYY.HH.mm");
+  const proxiedImageUrl = `/api/proxy-image?url=${encodeURIComponent(image + newDate)}`;
 
   return (
     <div className="camera-container">
-      <div className="flag-title">
-        <span className="flag-title-span">
-          <img className="flags" src={`/${country}.png`} />
-          {directionSign(direction)}
-        </span>
-        <span className="title-span">
-          <strong>{title}</strong> {desctiption}
-        </span>
-      </div>
-      <img
-        className="imageContainer"
-        crossorigin="*"
-        alt={title}
-        src={image + newDate}
-        // placeholder="blur"
-        loading="lazy"
-      />
+      <GlassCard className="overflow-hidden">
+        <div className="flag-title">
+          <span className="flag-title-span">
+            <img className="flags" src={`/${country}.png`} alt={country} />
+            <span className="direction-arrow">{directionSign(direction)}</span>
+          </span>
+          <span className="title-span">
+            <strong>{title}</strong> {desctiption}
+          </span>
+        </div>
+        <div className="relative overflow-hidden">
+          <img
+            className="imageContainer"
+            alt={title}
+            src={proxiedImageUrl}
+            loading="lazy"
+          />
+        </div>
+      </GlassCard>
     </div>
   );
 }
