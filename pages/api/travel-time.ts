@@ -35,28 +35,41 @@ export default async function handler(
       : "";
 
     // Handle departure time
-    // If departureTime is provided, use it (Unix timestamp in seconds)
-    // Otherwise, use "now" for current time
-    let departureTimeParam = "now";
+    // For traffic data, we need a future timestamp (Google requirement)
+    // If departureTime is "now" or not provided, use current time + 1 minute
+    let departureTimeParam: string;
+    const nowTimestamp = Math.floor(Date.now() / 1000);
+
     if (
       departureTime &&
       typeof departureTime === "string" &&
       departureTime !== "now"
     ) {
-      // Validate the timestamp is in the future
+      // User selected a specific time
       const timestamp = parseInt(departureTime);
-      const nowTimestamp = Math.floor(Date.now() / 1000);
 
       if (timestamp > nowTimestamp) {
         departureTimeParam = departureTime;
         console.log(
-          `Using departure time: ${new Date(timestamp * 1000).toLocaleString()}`
+          `Using user-selected departure time: ${new Date(
+            timestamp * 1000
+          ).toLocaleString()}`
         );
       } else {
+        // Time is in the past, use current time + 1 minute
+        departureTimeParam = (nowTimestamp + 60).toString();
         console.log(
-          `Timestamp ${timestamp} is in the past, using "now" instead`
+          `Timestamp ${timestamp} is in the past, using now + 1 minute`
         );
       }
+    } else {
+      // "now" - use current time + 1 minute to get traffic data
+      departureTimeParam = (nowTimestamp + 60).toString();
+      console.log(
+        `Using current time + 1 minute for traffic: ${new Date(
+          (nowTimestamp + 60) * 1000
+        ).toLocaleString()}`
+      );
     }
 
     // Use Directions API for waypoint support

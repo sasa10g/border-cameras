@@ -37,20 +37,26 @@ export default function TravelTime({ route }: TravelTimeProps) {
         // Create cache key
         const cacheKey = `travel-time-${route}-${departureTime}`;
 
-        // Check session storage for cached data
-        const cachedData = sessionStorage.getItem(cacheKey);
-        if (cachedData) {
-          try {
-            const parsed = JSON.parse(cachedData);
-            console.log(`Using cached data for ${route} at ${departureTime}`);
-            setData(parsed);
-            setError(false);
-            setLoading(false);
-            return;
-          } catch (e) {
-            console.error("Failed to parse cached data:", e);
-            sessionStorage.removeItem(cacheKey);
+        // Only use cache for "now" - always fetch fresh data for selected times
+        if (departureTime === "now") {
+          const cachedData = sessionStorage.getItem(cacheKey);
+          if (cachedData) {
+            try {
+              const parsed = JSON.parse(cachedData);
+              console.log(`Using cached data for ${route} at ${departureTime}`);
+              setData(parsed);
+              setError(false);
+              setLoading(false);
+              return;
+            } catch (e) {
+              console.error("Failed to parse cached data:", e);
+              sessionStorage.removeItem(cacheKey);
+            }
           }
+        } else {
+          console.log(
+            `Fetching fresh data for user-selected time: ${departureTime}`
+          );
         }
 
         // No cache, fetch from API
@@ -70,8 +76,10 @@ export default function TravelTime({ route }: TravelTimeProps) {
 
         const result = await response.json();
 
-        // Store in session storage
-        sessionStorage.setItem(cacheKey, JSON.stringify(result));
+        // Only cache "now" results - don't cache user-selected times
+        if (departureTime === "now") {
+          sessionStorage.setItem(cacheKey, JSON.stringify(result));
+        }
 
         setData(result);
         setError(false);
@@ -202,12 +210,14 @@ export default function TravelTime({ route }: TravelTimeProps) {
           </span>
           <span className="travel-distance">{data.distance.text}</span>
         </div>
-        <a
-          href={googleMapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
           className="maps-link"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            window.open(googleMapsUrl, "_blank", "noopener,noreferrer");
+          }}
           title="Open in Google Maps"
         >
           <svg
@@ -221,7 +231,7 @@ export default function TravelTime({ route }: TravelTimeProps) {
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-        </a>
+        </button>
       </div>
       {hasTrafficDelay && (
         <div className={`traffic-indicator ${trafficLevel}`}>
