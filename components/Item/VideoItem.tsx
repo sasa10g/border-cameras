@@ -35,6 +35,15 @@ export default function VideoItem({ title, desctiption, direction, element, blob
 
     const onContextMenu = () => { return false }
 
+    // Check if video URL is empty
+    const hasVideo = blob && blob.trim() !== "";
+
+    const handleClick = () => {
+        if (hasVideo && blob) {
+            window.open(blob, "_blank");
+        }
+    };
+
     return (
         <div className="camera-container">
             <GlassCard className="overflow-hidden">
@@ -45,14 +54,35 @@ export default function VideoItem({ title, desctiption, direction, element, blob
                     </span>
                     <span className="title-span"><strong>{title}</strong> {desctiption}</span>
                 </div>
-                <div className="relative overflow-hidden">
-                    <video
-                        className="kamera"
-                        id={element}
-                        controls="controls"
-                        autoPlay="autoplay" loop="loop" muted defaultmuted="true" playsInline onContextMenu={onContextMenu} preload="auto"
-                        src={blob}
-                    ></video>
+                <div
+                    className="relative overflow-hidden"
+                    style={{ cursor: hasVideo ? "pointer" : "default" }}
+                    onClick={handleClick}
+                >
+                    {hasVideo ? (
+                        <video
+                            className="kamera"
+                            id={element}
+                            controls="controls"
+                            autoPlay="autoplay" loop="loop" muted defaultmuted="true" playsInline onContextMenu={onContextMenu} preload="auto"
+                            src={blob}
+                        ></video>
+                    ) : (
+                        <div
+                            className="camera-not-available"
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                minHeight: "200px",
+                                background: "rgba(0, 0, 0, 0.05)",
+                                color: "#999",
+                                fontSize: "14px",
+                            }}
+                        >
+                            Camera not available
+                        </div>
+                    )}
                 </div>
             </GlassCard>
         </div>

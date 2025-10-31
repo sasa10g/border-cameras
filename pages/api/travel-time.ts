@@ -1,38 +1,6 @@
 // @ts-nocheck
 import type { NextApiRequest, NextApiResponse } from "next";
-
-const ORIGIN = "Radnička 2, Novi Sad, Serbia";
-const DESTINATION = "Skendera Kulenovića, Brčko, Bosnia and Herzegovina";
-
-interface RouteWaypoint {
-  route: string;
-  waypoints?: string[];
-}
-
-const ROUTES: Record<string, RouteWaypoint> = {
-  "batrovci-bajakovo-gunja": {
-    route: "batrovci-bajakovo-gunja",
-    waypoints: ["Spačva, 32245, Vrbanja, Croatia"],
-  },
-  "gunja-bajakovo-batrovci": {
-    route: "gunja-bajakovo-batrovci",
-    waypoints: ["Spačva, 32245, Vrbanja, Croatia"],
-  },
-  "sremska-raca-bosanska-raca": {
-    route: "sremska-raca-bosanska-raca",
-    waypoints: [
-      "Sremska Rača, Serbia",
-      "Bosanska Rača, Bosnia and Herzegovina",
-    ],
-  },
-  "bosanska-raca-sremska-raca": {
-    route: "bosanska-raca-sremska-raca",
-    waypoints: [
-      "Bosanska Rača, Bosnia and Herzegovina",
-      "Sremska Rača, Serbia",
-    ],
-  },
-};
+import { getRouteConfig } from "../../config/routes";
 
 export default async function handler(
   req: NextApiRequest,
@@ -46,7 +14,7 @@ export default async function handler(
       .json({ error: "Missing or invalid route parameter" });
   }
 
-  const routeConfig = ROUTES[route];
+  const routeConfig = getRouteConfig(route);
   if (!routeConfig) {
     return res.status(400).json({ error: "Unknown route" });
   }
@@ -69,33 +37,59 @@ export default async function handler(
     // Handle departure time
     // If departureTime is provided, use it (Unix timestamp in seconds)
     // Otherwise, use "now" for current time
-    let departureTimeParam = 'now';
-    if (departureTime && typeof departureTime === 'string' && departureTime !== 'now') {
+    let departureTimeParam = "now";
+    if (
+      departureTime &&
+      typeof departureTime === "string" &&
+      departureTime !== "now"
+    ) {
       // Validate the timestamp is in the future
       const timestamp = parseInt(departureTime);
       const nowTimestamp = Math.floor(Date.now() / 1000);
 
       if (timestamp > nowTimestamp) {
         departureTimeParam = departureTime;
-        console.log(`Using departure time: ${new Date(timestamp * 1000).toLocaleString()}`);
+        console.log(
+          `Using departure time: ${new Date(timestamp * 1000).toLocaleString()}`
+        );
       } else {
-        console.log(`Timestamp ${timestamp} is in the past, using "now" instead`);
+        console.log(
+          `Timestamp ${timestamp} is in the past, using "now" instead`
+        );
       }
     }
 
     // Use Directions API for waypoint support
     const directionsUrl = `https://maps.googleapis.com/maps/api/directions/json?origin=${encodeURIComponent(
-      ORIGIN
+      routeConfig.origin
     )}&destination=${encodeURIComponent(
-      DESTINATION
+      routeConfig.destination
     )}${waypointsParam}&departure_time=${departureTimeParam}&traffic_model=best_guess&key=${apiKey}`;
 
-    console.log(`Fetching directions with departure_time=${departureTimeParam}`);
+    console.log(
+      `Fetching directions with departure_time=${departureTimeParam}`
+    );
     const response = await fetch(directionsUrl);
     const data = await response.json();
 
     if (data.status !== "OK") {
-      console.error(`Google Maps API error: ${data.status}`, data.error_message);
+      console.error(
+        `Google Maps API error: ${data.status}`,
+        data.error_message
+      );
+
+      // Return specific error code for invalid API key
+      if (
+        data.status === "REQUEST_DENIED" &&
+        data.error_message?.includes("API key")
+      ) {
+        return res.status(401).json({
+          error: "Invalid API key",
+          status: data.status,
+          message: data.error_message,
+        });
+      }
+
       return res.status(500).json({
         error: "Google Maps API error",
         status: data.status,
@@ -124,21 +118,28 @@ export default async function handler(
 
     routeData.legs.forEach((leg: any, index: number) => {
       const legDuration = leg.duration?.value || 0;
-      const legDurationInTraffic = leg.duration_in_traffic?.value || leg.duration?.value || 0;
+      const legDurationInTraffic =
+        leg.duration_in_traffic?.value || leg.duration?.value || 0;
 
-      console.log(`Leg ${index}: duration=${legDuration}s, duration_in_traffic=${legDurationInTraffic}s`);
+      console.log(
+        `Leg ${index}: duration=${legDuration}s, duration_in_traffic=${legDurationInTraffic}s`
+      );
 
       totalDuration += legDuration;
       totalDurationInTraffic += legDurationInTraffic;
       totalDistance += leg.distance?.value || 0;
     });
 
-    console.log(`Total: duration=${totalDuration}s, duration_in_traffic=${totalDurationInTraffic}s, delay=${totalDurationInTraffic - totalDuration}s`);
+    console.log(
+      `Total: duration=${totalDuration}s, duration_in_traffic=${totalDurationInTraffic}s, delay=${
+        totalDurationInTraffic - totalDuration
+      }s`
+    );
 
     const result = {
       route: route,
-      origin: ORIGIN,
-      destination: DESTINATION,
+      origin: routeConfig.origin,
+      destination: routeConfig.destination,
       distance: {
         text: `${(totalDistance / 1000).toFixed(1)} km`,
         value: totalDistance,

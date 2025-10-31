@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
+import { getGoogleMapsUrl } from "../config/routes";
 
 interface TravelTimeProps {
   route: string;
@@ -14,21 +15,6 @@ interface TravelTimeData {
   destination: string;
   waypoints?: string[];
 }
-
-const ROUTE_WAYPOINTS: Record<string, string[]> = {
-  "batrovci-bajakovo-gunja": [
-    "Batrovci, Serbia",
-    "Bajakovo, Croatia",
-    "Gunja, Croatia",
-  ],
-  "gunja-bajakovo-batrovci": [
-    "Gunja, Croatia",
-    "Bajakovo, Croatia",
-    "Batrovci, Serbia",
-  ],
-  "sremska-raca-bosanska-raca": ["Bridge Rača"],
-  "bosanska-raca-sremska-raca": ["Bridge Rača"],
-};
 
 export default function TravelTime({ route }: TravelTimeProps) {
   const [data, setData] = useState<TravelTimeData | null>(null);
@@ -70,7 +56,18 @@ export default function TravelTime({ route }: TravelTimeProps) {
         // No cache, fetch from API
         console.log(`Fetching fresh data for ${route} at ${departureTime}`);
         const response = await fetch(url);
-        if (!response.ok) console.error("Failed to fetch travel time data");
+
+        if (!response.ok) {
+          // Check if it's an invalid API key error (401)
+          if (response.status === 401) {
+            console.warn("Invalid Google Maps API key - hiding travel time");
+            setError(true);
+            setLoading(false);
+            return;
+          }
+          console.error("Failed to fetch travel time data");
+        }
+
         const result = await response.json();
 
         // Store in session storage
@@ -170,16 +167,7 @@ export default function TravelTime({ route }: TravelTimeProps) {
       : "light";
 
   // Build Google Maps URL
-  const origin = "Radnička 2, Novi Sad, Serbia";
-  const destination = "Skendera Kulenovića, Brčko, Bosnia and Herzegovina";
-  const waypoints = ROUTE_WAYPOINTS[route] || [];
-  const waypointsParam =
-    waypoints.length > 0 ? `&waypoints=${waypoints.join("|")}` : "";
-  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
-    origin
-  )}&destination=${encodeURIComponent(
-    destination
-  )}${waypointsParam}&travelmode=driving`;
+  const googleMapsUrl = getGoogleMapsUrl(route);
 
   return (
     <div className="travel-time-container">

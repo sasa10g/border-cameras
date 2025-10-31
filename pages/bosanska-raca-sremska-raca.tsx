@@ -34,13 +34,6 @@ export default function BosanskaRacaSremskaRaca() {
       image: "https://gp.satwork.net/AMSRS_02_GP_RA02/slika.jpg?v=",
       country: "bih",
     },
-    {
-      title: "Rača",
-      desctiption: "izlaz iz Bosne",
-      direction: "out",
-      image: "https://gp.satwork.net/AMSRS_02_GP_RA01/slika.jpg?v=",
-      country: "bih",
-    },
   ];
 
   const exportVideo = (element: string, link: any) => {

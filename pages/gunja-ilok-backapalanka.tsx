@@ -14,39 +14,37 @@ declare global {
   }
 }
 
-export default function BatrovciBajakovoGunja() {
-  const videoStreams = [
-    {
-      title: "Batrovci",
-      element: "batrovci2",
-      description: "izlaz iz Srbije",
-      direction: "out",
-      link: "https://kamere.amss.org.rs/batrovci2/batrovci2.m3u8",
-      blob: "blob:https://kamere.amss.org.rs/6e1c1dad-2302-4e44-a3a7-ab67842e7ad5",
-    },
-  ];
+export default function GunjaIlokBackaPalanka() {
+  const videoStreams: any[] = [];
 
   const photoStreams = [
     {
-      title: "Bajakovo",
+      title: "Gunja",
+      desctiption: "izlaz iz Bosne",
+      direction: "out",
+      image: "https://video-nadzor.bihamk.ba/videosurveillence/BRCKO.jpg?",
+      country: "bih",
+    },
+    {
+      title: "Gunja",
       desctiption: "ulaz u Hrvatsku",
       direction: "in",
-      image: "https://www.hak.hr/info/kamere/2.jpg?v=",
+      image: "https://www.hak.hr/info/kamere/431.jpg?v=",
       country: "hr",
     },
     {
-      title: "Gunja",
+      title: "Ilok",
       desctiption: "izlaz iz Hrvatske",
       direction: "out",
-      image: "https://www.hak.hr/info/kamere/432.jpg?v=",
+      image: "https://m.hak.hr/cam.asp?id=417&t=",
       country: "hr",
     },
     {
-      title: "Gunja",
-      desctiption: "ulaz u Bosnu",
+      title: "Bačka Palanka",
+      desctiption: "ulaz u Srbiju",
       direction: "in",
       image: "",
-      country: "bih",
+      country: "rs",
     },
   ];
 
@@ -83,17 +81,6 @@ export default function BatrovciBajakovoGunja() {
   return (
     <Layout title="Srbija">
       <div className="grid-container">
-        {videoStreams.map((item: any) => (
-          <VideoItem
-            key={item.element}
-            title={item.title}
-            desctiption={item.description}
-            direction={item.direction}
-            element={item.element}
-            blob={item.blob}
-          />
-        ))}
-
         {photoStreams.map((item: any) => (
           <PhotoItem
             key={item.image}
@@ -102,6 +89,17 @@ export default function BatrovciBajakovoGunja() {
             direction={item.direction}
             image={item.image}
             country={item.country}
+          />
+        ))}
+
+        {videoStreams.map((item: any) => (
+          <VideoItem
+            key={item.element}
+            title={item.title}
+            desctiption={item.description}
+            direction={item.direction}
+            element={item.element}
+            blob={item.blob}
           />
         ))}
       </div>

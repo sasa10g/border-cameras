@@ -14,24 +14,22 @@ declare global {
   }
 }
 
-export default function BatrovciBajakovoGunja() {
-  const videoStreams = [
-    {
-      title: "Batrovci",
-      element: "batrovci2",
-      description: "izlaz iz Srbije",
-      direction: "out",
-      link: "https://kamere.amss.org.rs/batrovci2/batrovci2.m3u8",
-      blob: "blob:https://kamere.amss.org.rs/6e1c1dad-2302-4e44-a3a7-ab67842e7ad5",
-    },
-  ];
+export default function BackaPalankaIlokGunja() {
+  const videoStreams: any[] = [];
 
   const photoStreams = [
     {
-      title: "Bajakovo",
+      title: "Bačka Palanka",
+      desctiption: "izlaz iz Srbije",
+      direction: "out",
+      image: "",
+      country: "rs",
+    },
+    {
+      title: "Ilok",
       desctiption: "ulaz u Hrvatsku",
       direction: "in",
-      image: "https://www.hak.hr/info/kamere/2.jpg?v=",
+      image: "https://m.hak.hr/cam.asp?id=418&t=",
       country: "hr",
     },
     {
@@ -43,7 +41,7 @@ export default function BatrovciBajakovoGunja() {
     },
     {
       title: "Gunja",
-      desctiption: "ulaz u Bosnu",
+      desctiption: "ulaz u Bosni",
       direction: "in",
       image: "",
       country: "bih",

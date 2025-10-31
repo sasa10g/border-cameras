@@ -95,6 +95,23 @@ export default function Home() {
                   <TravelTime route="sremska-raca-bosanska-raca" />
                 </span>
               </Link>
+
+              <Link
+                href="/backapalanka-ilok-gunja"
+                as="/backapalanka-ilok-gunja"
+              >
+                <span className="card">
+                  <h3>
+                    <div className="flag-icons">
+                      <img src="/rs.png" />
+                      <img src="/hr.png" />
+                      <img src="/bih.png" />
+                    </div>
+                  </h3>
+                  <p>Bačka Palanka &rarr; Ilok &rarr; Gunja</p>
+                  <TravelTime route="backapalanka-ilok-gunja" />
+                </span>
+              </Link>
             </div>
           </div>
 
@@ -131,6 +148,23 @@ export default function Home() {
                   </h3>
                   <p>Bosanska Rača &rarr; Sremska Rača</p>
                   <TravelTime route="bosanska-raca-sremska-raca" />
+                </span>
+              </Link>
+
+              <Link
+                href="/gunja-ilok-backapalanka"
+                as="/gunja-ilok-backapalanka"
+              >
+                <span className="card">
+                  <h3>
+                    <div className="flag-icons">
+                      <img src="/bih.png" />
+                      <img src="/hr.png" />
+                      <img src="/rs.png" />
+                    </div>
+                  </h3>
+                  <p>Gunja &rarr; Ilok &rarr; Bačka Palanka</p>
+                  <TravelTime route="gunja-ilok-backapalanka" />
                 </span>
               </Link>
             </div>
