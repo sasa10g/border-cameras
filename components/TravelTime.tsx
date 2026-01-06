@@ -64,14 +64,12 @@ export default function TravelTime({ route }: TravelTimeProps) {
         const response = await fetch(url);
 
         if (!response.ok) {
-          // Check if it's an invalid API key error (401)
-          if (response.status === 401) {
-            console.warn("Invalid Google Maps API key - hiding travel time");
-            setError(true);
-            setLoading(false);
-            return;
-          }
-          console.error("Failed to fetch travel time data");
+          console.warn(
+            `Travel time API error (${response.status}) - hiding travel time`
+          );
+          setError(true);
+          setLoading(false);
+          return;
         }
 
         const result = await response.json();

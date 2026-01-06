@@ -21,9 +21,7 @@ export default async function handler(
 
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
   if (!apiKey) {
-    return res
-      .status(500)
-      .json({ error: "Google Maps API key not configured" });
+    return res.status(503).json({ error: "Google Maps API not configured" });
   }
 
   try {
@@ -91,20 +89,9 @@ export default async function handler(
         data.error_message
       );
 
-      // Return specific error code for invalid API key
-      if (
-        data.status === "REQUEST_DENIED" &&
-        data.error_message?.includes("API key")
-      ) {
-        return res.status(401).json({
-          error: "Invalid API key",
-          status: data.status,
-          message: data.error_message,
-        });
-      }
-
-      return res.status(500).json({
-        error: "Google Maps API error",
+      // Return 503 for API unavailable (covers invalid API key, quota exceeded, etc.)
+      return res.status(503).json({
+        error: "Google Maps API unavailable",
         status: data.status,
         message: data.error_message,
       });
