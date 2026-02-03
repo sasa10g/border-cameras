@@ -38,7 +38,7 @@ export default function TravelTime({ route }: TravelTimeProps) {
         const cacheKey = `travel-time-${route}-${departureTime}`;
 
         // Only use cache for "now" - always fetch fresh data for selected times
-        if (departureTime === "now") {
+        if (departureTime === "now" && typeof window !== "undefined") {
           const cachedData = sessionStorage.getItem(cacheKey);
           if (cachedData) {
             try {
@@ -75,7 +75,7 @@ export default function TravelTime({ route }: TravelTimeProps) {
         const result = await response.json();
 
         // Only cache "now" results - don't cache user-selected times
-        if (departureTime === "now") {
+        if (departureTime === "now" && typeof window !== "undefined") {
           sessionStorage.setItem(cacheKey, JSON.stringify(result));
         }
 
@@ -98,7 +98,9 @@ export default function TravelTime({ route }: TravelTimeProps) {
       interval = setInterval(() => {
         // Clear cache for "now" before refreshing
         const cacheKey = `travel-time-${route}-now`;
-        sessionStorage.removeItem(cacheKey);
+        if (typeof window !== "undefined") {
+          sessionStorage.removeItem(cacheKey);
+        }
         fetchTravelTime();
       }, 5 * 60 * 1000);
     }
