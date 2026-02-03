@@ -88,6 +88,22 @@ export default function Home() {
                     <TravelTime route="backapalanka-ilok-gunja" />
                   </span>
                 </Link>
+
+                <Link
+                  href="/pavlovica-most-brcko"
+                  as="/pavlovica-most-brcko"
+                >
+                  <span className="card">
+                    <h3>
+                      <div className="flag-icons">
+                        <img src="/rs.png" />
+                        <img src="/bih.png" />
+                      </div>
+                    </h3>
+                    <p>Pavlovića most</p>
+                    <TravelTime route="pavlovica-most-brcko" />
+                  </span>
+                </Link>
               </div>
             )}
           </div>
@@ -149,6 +165,22 @@ export default function Home() {
                     </h3>
                     <p>Gunja &rarr; Ilok &rarr; Bačka Palanka</p>
                     <TravelTime route="gunja-ilok-backapalanka" />
+                  </span>
+                </Link>
+
+                <Link
+                  href="/pavlovica-most-novisad"
+                  as="/pavlovica-most-novisad"
+                >
+                  <span className="card">
+                    <h3>
+                      <div className="flag-icons">
+                        <img src="/bih.png" />
+                        <img src="/rs.png" />
+                      </div>
+                    </h3>
+                    <p>Pavlovića most</p>
+                    <TravelTime route="pavlovica-most-novisad" />
                   </span>
                 </Link>
               </div>
