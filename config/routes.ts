@@ -45,6 +45,18 @@ export const ROUTES: Record<string, RouteConfig> = {
     destination: NOVI_SAD,
     waypoints: ["Gunja, Croatia", "Ilok, Croatia"],
   },
+  "pavlovica-most-brcko": {
+    route: "pavlovica-most-brcko",
+    origin: NOVI_SAD,
+    destination: BRCKO,
+    waypoints: ["Pavlovića most, Serbia"],
+  },
+  "pavlovica-most-novisad": {
+    route: "pavlovica-most-novisad",
+    origin: BRCKO,
+    destination: NOVI_SAD,
+    waypoints: ["Pavlovića most, Serbia"],
+  },
 };
 
 export const getRouteConfig = (route: string): RouteConfig | undefined => {
