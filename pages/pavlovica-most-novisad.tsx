@@ -6,17 +6,17 @@ export default function PavlovicaMostNoviSad() {
   const photoStreams = [
     {
       title: "Pavlovića most",
-      desctiption: "izlaz iz Bosne",
+      desctiption: "izlaz iz Srbije",
       direction: "out",
-      image: "https://gp.satwork.net/AMSRS_05_GP_PM01/slika.jpg?v=",
-      country: "bih",
+      image: "https://gp.satwork.net/AMSRS_05_GP_PM02/slika.jpg?v=",
+      country: "rs",
     },
     {
       title: "Pavlovića most",
-      desctiption: "ulaz u Srbiju",
+      desctiption: "ulaz u Bosnu",
       direction: "in",
-      image: "https://gp.satwork.net/AMSRS_05_GP_PM02/slika.jpg?v=",
-      country: "rs",
+      image: "https://gp.satwork.net/AMSRS_05_GP_PM01/slika.jpg?v=",
+      country: "bih",
     },
   ];
 

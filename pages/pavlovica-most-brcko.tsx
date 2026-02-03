@@ -6,17 +6,17 @@ export default function PavlovicaMostBrcko() {
   const photoStreams = [
     {
       title: "Pavlovića most",
-      desctiption: "izlaz iz Srbije",
+      desctiption: "izlaz iz Bosne",
       direction: "out",
       image: "https://gp.satwork.net/AMSRS_05_GP_PM01/slika.jpg?v=",
-      country: "rs",
+      country: "bih",
     },
     {
       title: "Pavlovića most",
-      desctiption: "ulaz u Bosnu",
+      desctiption: "ulaz u Srbiju",
       direction: "in",
       image: "https://gp.satwork.net/AMSRS_05_GP_PM02/slika.jpg?v=",
-      country: "bih",
+      country: "rs",
     },
   ];
 

@@ -100,7 +100,7 @@ export default function Home() {
                         <img src="/bih.png" />
                       </div>
                     </h3>
-                    <p>Pavlovića most &rarr; Brčko</p>
+                    <p>Pavlovića most</p>
                     <TravelTime route="pavlovica-most-brcko" />
                   </span>
                 </Link>
@@ -179,7 +179,7 @@ export default function Home() {
                         <img src="/rs.png" />
                       </div>
                     </h3>
-                    <p>Pavlovića most &rarr; Novi Sad</p>
+                    <p>Pavlovića most</p>
                     <TravelTime route="pavlovica-most-novisad" />
                   </span>
                 </Link>
